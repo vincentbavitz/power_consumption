@@ -52,11 +52,11 @@ if (SHELL_MINOR > 30) {
 }
 
 function get_current_path() {
-  return "/sys/class/power_supply/BAT0/current_now";
+  return "/sys/class/power_supply/BAT1/current_now";
 }
 
 function get_voltage_path() {
-  return "/sys/class/power_supply/BAT0/voltage_now";
+  return "/sys/class/power_supply/BAT1/voltage_now";
 }
 
 function get_current() {
@@ -76,7 +76,7 @@ function get_voltage() {
 }
 
 function get_data() {
-  var power_str = "N/A";
+  var power_str;
   var current = get_current();
   var voltage = get_voltage();
 
@@ -101,7 +101,10 @@ function enable() {
   
   log(`Enabling ${Me.metadata.name} version ${Me.metadata.version}`);
 
-  Main.panel.addToStatusArea(`${Me.metadata.name}`, indicator);
+  // Add only if power reading available (eg. on battery)
+  if (get_data) {
+  	Main.panel.addToStatusArea(`${Me.metadata.name}`, indicator);
+  }
 }
 
 function disable() {
