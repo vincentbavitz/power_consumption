@@ -1,10 +1,10 @@
 {
   "name": "Power Consumption",
-  "description": "Show power consumption in a laptop",
-  "uuid": "power_consumption@f3rd3f",
+  "description": "Show the power consumption of a laptop",
+  "uuid": "power_consumption@vincentbavitz",
   "shell-version": [
     "3.34"
   ],
   "version": 0.1,
-  "url": "https://github.com/ferdef/power_consumption"
+  "url": "https://github.com/vincentbavitz/power_consumption"
 }
