@@ -85,7 +85,7 @@ function get_data() {
   
     var power = (Math.round(raw_power * 100) / 100).toFixed(2);
 
-    power_str = `⚡️ ${String(power)} W`;
+    power_str = '⚡️ ' + String(power) + 'W';
   }
   
   return power_str;
