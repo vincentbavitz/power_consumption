@@ -76,7 +76,7 @@ function get_voltage() {
 }
 
 function get_data() {
-  var power_str;
+  var power_str = '⚡️ AC';
   var current = get_current();
   var voltage = get_voltage();
 
@@ -85,10 +85,10 @@ function get_data() {
   
     var power = (Math.round(raw_power * 100) / 100).toFixed(2);
 
-    power_str = `${String(power)} W`;
+    power_str = `⚡️ ${String(power)} W`;
   }
   
-  return(power_str);
+  return power_str;
 }
 
 function init() {
@@ -101,10 +101,7 @@ function enable() {
   
   log(`Enabling ${Me.metadata.name} version ${Me.metadata.version}`);
 
-  // Add only if power reading available (eg. on battery)
-  if (get_data) {
-  	Main.panel.addToStatusArea(`${Me.metadata.name}`, indicator);
-  }
+  Main.panel.addToStatusArea(`${Me.metadata.name}`, indicator);
 }
 
 function disable() {
